@@ -1,2 +1,0 @@
-# chuyendephattrienweb1_2024
-chuyendephattrienweb1_2024
