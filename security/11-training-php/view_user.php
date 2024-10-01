@@ -2,53 +2,51 @@
 require_once 'models/UserModel.php';
 $userModel = new UserModel();
 
-$user = NULL; //Add new user
+$user = NULL;
 $id = NULL;
 
 if (!empty($_GET['id'])) {
-    $id = $_GET['id'];
-    $user = $userModel->findUserById($id);//Update existing user
+    // Decode the ID from the URL parameter
+    $id = base64_decode($_GET['id']);
+    $user = $userModel->findUserById($id);
 }
 
-
 if (!empty($_POST['submit'])) {
-
     if (!empty($id)) {
         $userModel->updateUser($_POST);
     } else {
         $userModel->insertUser($_POST);
     }
     header('location: list_users.php');
+    exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User form</title>
-    <?php include 'views/meta.php' ?>
+    <title>User Profile</title>
+    <?php include 'views/meta.php'; ?>
 </head>
 <body>
-<?php include 'views/header.php'?>
+<?php include 'views/header.php'; ?>
 <div class="container">
-
-    <?php if ($user || empty($id)) { ?>
+    <?php if (!empty($user)) { ?>
         <div class="alert alert-warning" role="alert">
-            User profile
+            User Profile
         </div>
         <form method="POST">
-            <input type="hidden" name="id" value="<?php echo $id ?>">
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
             <div class="form-group">
                 <label for="name">Name</label>
-                <span><?php if (!empty($user[0]['name'])) echo $user[0]['name'] ?></span>
+                <span><?php echo htmlspecialchars($user[0]['name'] ?? 'N/A'); ?></span>
             </div>
             <div class="form-group">
-                <label for="password">Fullname</label>
-                <span><?php if (!empty($user[0]['name'])) echo $user[0]['fullname'] ?></span>
+                <label for="fullname">Fullname</label>
+                <span><?php echo htmlspecialchars($user[0]['fullname'] ?? 'N/A'); ?></span>
             </div>
             <div class="form-group">
-                <label for="password">Email</label>
-                <span><?php if (!empty($user[0]['name'])) echo $user[0]['email'] ?></span>
+                <label for="email">Email</label>
+                <span><?php echo htmlspecialchars($user[0]['email'] ?? 'N/A'); ?></span>
             </div>
         </form>
     <?php } else { ?>
