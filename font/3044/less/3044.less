@@ -1,0 +1,255 @@
+
+@footer-bg-color: #181e22; 
+@footer-button-bg-color: #f2480c; 
+@footer-text-color: #fff; 
+@footer-text-color-dim: #c8c6c6ad; 
+@input-bg-color: #3b4047; 
+@arrow-color-1: #ff6600;  
+@arrow-color-2: #009cfd;  
+@arrow-color-3: #00aff0;  
+@arrow-color-4: #3b5998;  
+@arrow-color-5: #ff0000;  
+
+@icon-font-size-small: 16px;
+
+
+footer {
+  background-image: url("../Image/3044.jpg"); 
+  color: @footer-text-color; 
+  padding: 90px 90px; 
+  width: 100%; 
+}
+
+.footer-head {
+  display: flex; 
+  justify-content: space-between; 
+  width: 100%; 
+  flex-wrap: wrap; 
+}
+
+.footer-section {
+  flex: 1; 
+  padding: 0 20px; 
+
+  h2, h3 {
+    color: @footer-text-color; 
+  }
+
+  p, li {
+    font-size: 14px; 
+    line-height: 1.6; 
+    color: @footer-text-color-dim;
+    padding: 5px;
+  }
+
+  ul {
+    list-style-type: none; 
+    padding: 0; 
+    
+  }
+
+  form {
+    display: flex; 
+    margin-top: 10px; 
+
+    input[type="email"] {
+      flex-grow: 1; 
+      padding: 10px; 
+      color: @footer-text-color;
+      background-color: @input-bg-color; 
+    }
+
+    button {
+      background-color: @footer-button-bg-color; 
+      border: none; 
+      color: @footer-text-color; 
+      padding: 5px 10px; 
+    }
+  }
+
+  .social-media a {
+    display: inline-block; 
+    margin-right: 10px; 
+    color: @footer-text-color; 
+    text-decoration: none; 
+  }
+
+  
+  p:hover, li:hover {
+    color: @footer-button-bg-color; 
+    transition: color 1s; 
+  }
+}
+
+
+.copyright {
+  background-color: @footer-bg-color; 
+  color: @footer-text-color; 
+  text-align: center; 
+  padding: 30px 0; 
+  width: 100%; 
+}
+
+
+@media (max-width: 768px) {
+  footer {
+    padding: 55px 0; 
+  }
+  .footer-head {
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .footer-section {
+    width: 100%; 
+
+    form {
+      display: flex;
+      width: 100%; 
+      justify-content: space-between; 
+    }
+
+    input[type="email"], 
+    button {
+      flex-grow: 1; 
+      max-width: none; 
+    }
+
+    button {
+      width: 50px; 
+      height: 50px; 
+    }
+  }
+}
+
+
+
+
+
+.footer-section hr {
+  border: absolute; 
+  height: 1px; 
+  
+  margin: 10px 0; 
+}
+
+.text-center {
+  padding: 150px; 
+}
+
+.footer-section {
+  &.services, &.news {
+    h3, hr, li {
+      color: @input-bg-color; 
+    }
+  }
+
+  &.newsletter {
+    p {
+      color: @input-bg-color; 
+    }
+  }
+}
+.footer-section hr:first-of-type {
+  border-top: 3px solid @footer-button-bg-color; 
+  position: relative; 
+  top: 1px; 
+  width: 15%; 
+  margin: 0; 
+  opacity: 1; 
+}
+
+.footer-section hr:last-of-type {
+  border-top: 1px solid #ddd; 
+  width: 100%; 
+  margin: 0; 
+}
+.footer-section .i {
+  color: @footer-button-bg-color; 
+  font-size: 24px; 
+  margin-right: 10px; 
+}
+
+.social-media i {
+    color: #a9a1a1ad;  
+    font-size: 20px;    
+    margin-right: 15px; 
+ 
+}
+.social-media{
+  padding: 20px 5px;
+}
+
+.social-media i:last-child {
+    margin-right: 0;
+}
+.social-media {
+  padding: 20px 5px;
+
+  
+  i {
+    opacity: 0; 
+    animation: fadeIn 1s ease forwards; 
+  }
+
+  
+  i:nth-child(1) { animation-delay: 0.3s; }
+  i:nth-child(2) { animation-delay: 0.6s; }
+  i:nth-child(3) { animation-delay: 0.9s; }
+  i:nth-child(4) { animation-delay: 1.2s; }
+  i:nth-child(5) { animation-delay: 1.5s; }
+}
+
+.social-media i:last-child {
+  margin-right: 0;
+}
+
+
+.social-media {
+  i.fa-arrow-right {
+    &:nth-child(1):hover {
+      color: @arrow-color-1;
+    }
+    &:nth-child(2):hover {
+      color: @arrow-color-2;
+    }
+    &:nth-child(3):hover {
+      color: @arrow-color-3;
+    }
+    &:nth-child(4):hover {
+      color: @arrow-color-4;
+    }
+    &:nth-child(5):hover {
+      color: @arrow-color-5;
+    }
+  }
+}
+
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+::selection {
+  background-color: @footer-button-bg-color; 
+  color: @footer-text-color; 
+} 
+
+.fa {
+  &.fa-home,
+  &.fa-phone,
+  &.fa-clock-o {
+    font-size: @icon-font-size-small; 
+    color: @footer-button-bg-color; 
+    padding-right: 5px;
+  }
+}

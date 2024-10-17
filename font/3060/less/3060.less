@@ -1,0 +1,76 @@
+@maxWidth: 1200px;
+@tabletWidth: 768px;
+@mobileWidth: 1200px;
+@processBoxBorderColor: #ddd;
+@numberColor: #e74c3c;
+@mainFontSize: 17px;
+@titleFontSize: 2.5rem;
+
+.process-head {
+    max-width: @maxWidth;
+    margin: auto;
+}
+
+.process-cotchinh {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    @media (max-width: @mobileWidth) {
+        flex-wrap: wrap;
+    }
+}
+
+.process-cot {
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    @media (max-width: @mobileWidth) {
+        flex: 0 0 50%;
+    }
+    @media (max-width: @tabletWidth) {
+        flex: 0 0 100%;
+        padding: 10px 10px;
+    }
+}
+
+.process-box {
+    border: 1px solid @processBoxBorderColor;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    h4 {
+        padding-top: 30px;
+        font-weight: bold;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    p {
+        line-height: 1.6;
+        font-size: @mainFontSize;
+        margin-top: 10px;
+    }
+}
+
+.process-number {
+    color: @numberColor;
+    font-weight: bold;
+}
+
+h2.text-center, .process-title {
+    font-size: @titleFontSize;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    &.process-title {
+        padding: 20px;
+    }
+}
